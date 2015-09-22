@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: pf-cache
+Bundle-SymbolicName: pf-cache
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.topsec.bdc.platform.cache.Activator
+Bundle-Vendor: topsec
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.100",
+ pf-log;bundle-version="1.0.0",
+ pf-core;bundle-version="1.0.0"
