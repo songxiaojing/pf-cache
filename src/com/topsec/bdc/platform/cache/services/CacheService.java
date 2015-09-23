@@ -3,6 +3,7 @@ package com.topsec.bdc.platform.cache.services;
 import javax.xml.bind.annotation.XmlElement;
 
 import com.topsec.bdc.platform.cache.Activator;
+import com.topsec.bdc.platform.cache.store.ICache;
 import com.topsec.bdc.platform.core.metrics.AbstractMetricMBean;
 import com.topsec.bdc.platform.core.metrics.MetricUtils;
 import com.topsec.bdc.platform.core.services.IService;
@@ -21,8 +22,8 @@ public class CacheService extends AbstractMetricMBean implements IService {
     private static PlatformLogger _logger = PlatformLogger.getLogger(CacheService.class);
     private ICache _cache = null;
 
-    @XmlElement(name = "currentCache", type = String.class, defaultValue = "com.byw.platform.cache.services.MemCached")
-    private String _currentCache = "com.byw.platform.cache.services.MemCached";
+    @XmlElement(name = "currentCache", type = String.class, defaultValue = "com.topsec.bdc.platform.cache.store.memcached.MemCached")
+    private String _currentCache = "com.topsec.bdc.platform.cache.store.memcached.MemCached";
 
     @Override
     public void start() throws Exception {
