@@ -11,3 +11,6 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.100",
  pf-log;bundle-version="1.0.0",
  pf-core;bundle-version="1.0.0"
+Bundle-ClassPath: lib/commons-pool2-2.0.jar,
+ lib/jedis-2.5.2.jar,
+ .
