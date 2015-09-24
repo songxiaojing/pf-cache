@@ -58,22 +58,32 @@ public class RedisCached implements ICache {
         	close(jedis);
         }
     }
-
-    @Override
-    public void set(String key, Object value) {
-
-        if (key == null) {
+    
+    private void setOpr(String key, Object value, int expireTime) {
+    	if (key == null) {
             return;
         }
         JedisCommands jedis = null;
         try {
         	jedis = this.getJedis();
         	jedis.set(key, value.toString());
+        	if(expireTime != 0) {
+        		jedis.expire(key, expireTime);
+        	}
         }catch(Exception e) {
         	e.printStackTrace();
         }finally {
         	close(jedis);
         }
+    }
+    
+    public void set(String key, Object value, int expireTime) {
+    	setOpr(key, value, expireTime); 
+    }
+
+    @Override
+    public void set(String key, Object value) {
+    	setOpr(key, value, 0); 
     }
     @Override
     public Object get(String key) {
